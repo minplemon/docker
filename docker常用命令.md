@@ -29,3 +29,8 @@ docker commit nginx king101125s/nginxStudy:v1
 - 实例
   docker push king101125s/nginxStudy:v1
 ```
+
+## 参看容器ip
+```
+$ docker inspect container
+```
