@@ -4,8 +4,9 @@ services:
   nginx:
     image: nginx:${NGINX_DER}
     container_name: wordpress-nginx
-    #volumes:
-    #  - wordpress:/var/www/html
+    volumes:
+      -   $PWD:/var/logs/nginx
+      -   $PWD:/etc/nginx
     ports:
       - "127.0.0.1:${WEB_PORT}:80"
       #- "127.0.0.1:${WEB_STATIC_PORT}:8080"
