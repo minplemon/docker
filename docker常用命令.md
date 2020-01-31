@@ -34,3 +34,25 @@ docker commit nginx king101125s/nginxStudy:v1
 ```
 $ docker inspect container
 ```
+
+## 设置mysql密码 (运行mysql(--name 容器名称  -e MYSQL_ROOT_PASSWORD设置初始密码  -p 3307:3306  端口映射，主机端口3307))
+```shell
+docker run --name mysql8.0.19 -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 -d mysql:8.0.19
+```
+
+## 设置redis(设置密码只需要加上–requirepass)
+```shell
+docker run -d --name redis_rc-alpine -p 6378:6379 redis:rc-alpine --requirepass "123456"
+```
+
+## 设置rabbitMQ密码
+```
+docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 -v `pwd`/data:/var/lib/rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST=my_vhost  -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin df80af9ca0c9
+```
+说明：
+-d 后台运行容器；
+--name 指定容器名；
+-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；
+-v 映射目录或文件；
+--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；
+-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）
