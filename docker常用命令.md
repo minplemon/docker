@@ -40,9 +40,11 @@ $ docker inspect container
 docker run --name mysql8.0.19 -e MYSQL_ROOT_PASSWORD=123456 -p 3307:3306 -d mysql:8.0.19
 ```
 
-## 设置redis(设置密码只需要加上–requirepass)
+## 设置redis(设置密码只需要加上–requirepass,设置redis持久化 --appendonly yes)
 ```shell
 docker run -d --name redis_rc-alpine -p 6378:6379 redis:rc-alpine --requirepass "123456"
+docker run -d --name redis_rc-alpine_persistence -p 6377:6379 redis:rc-alpine --requirepass "123456" --appendonly yes -v $PWD/data:/data
+docker run -d --name redis_rc-alpine_persistence_data -p 6376:6379 redis:rc-alpine --requirepass "123456" --appendonly yes -v $PWD/data:/data
 ```
 
 ## 设置rabbitMQ密码
