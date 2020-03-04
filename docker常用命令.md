@@ -57,6 +57,13 @@ docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 -v `pwd`/data:/va
 docker run -d -p 27018:27017 --name mongodb_4.2_bionic -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=123456 bcef5fd2979d
 ```
 
+## 创建&运行ActiveMQ容器
+```shell script
+docker run -d --name activemq_5.15.9_alpine_1 -p 61617:61616 -p 8162:8161 rmohr/activemq:5.15.9-alpine
+# admin:admin admin 管理员权限
+# user:user user 用户权限
+```
+
 说明：
 -d 后台运行容器；
 --name 指定容器名；
