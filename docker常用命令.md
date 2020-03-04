@@ -51,6 +51,12 @@ docker run -d --name redis_rc-alpine_persistence_data -p 6376:6379 redis:rc-alpi
 ```
 docker run -d --name rabbitmq3.7.7 -p 5672:5672 -p 15672:15672 -v `pwd`/data:/var/lib/rabbitmq --hostname myRabbit -e RABBITMQ_DEFAULT_VHOST=my_vhost  -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin df80af9ca0c9
 ```
+
+## 设置mongo 密码
+```shell
+docker run -d -p 27018:27017 --name mongodb_4.2_bionic -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=123456 bcef5fd2979d
+```
+
 说明：
 -d 后台运行容器；
 --name 指定容器名；
