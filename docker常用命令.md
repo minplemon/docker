@@ -64,6 +64,11 @@ docker run -d --name activemq_5.15.9_alpine_1 -p 61617:61616 -p 8162:8161 rmohr/
 # user:user user 用户权限
 ```
 
+## 创建&运行zookeeper容器
+```shell script
+docker run --privileged=true -d --name zookeeper --publish 2181:2181  -d zookeeper:3.5.6
+```
+
 说明：
 -d 后台运行容器；
 --name 指定容器名；
